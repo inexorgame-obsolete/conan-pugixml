@@ -5,6 +5,7 @@ set(TARGET_NAME pugixml)
 
 
 # Setup Conan
+include("${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
 conan_basic_setup()
 
 
