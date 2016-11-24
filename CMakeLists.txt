@@ -11,6 +11,6 @@ conan_basic_setup()
 
 file(GLOB_RECURSE SOURCES "pugixml/src/*.cpp")
 
-add_library(${TARGET_NAME} STATIC ${SOURCES})
+add_library(${TARGET_NAME} ${SOURCES})
 
 target_include_directories(${TARGET_NAME} PRIVATE "pugixml/src")
