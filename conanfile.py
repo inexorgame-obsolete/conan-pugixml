@@ -5,7 +5,7 @@ import sys
 class PugixmlConan(ConanFile):
     name = "pugixml"
     version = "1.7"
-    url = "https://github.com/SteffenL/conan-pugixml"
+    url = "https://github.com/inexorgame/conan-pugixml"
     license = "MIT"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
@@ -17,7 +17,7 @@ class PugixmlConan(ConanFile):
 
     def source(self):
         git_branch = "v" + self.version
-        
+
         if sys.version_info.major >= 3:
             self.run("git clone --depth 1 --branch {0} {1}".format(git_branch, self.git_repository_url))
         else:
@@ -37,7 +37,7 @@ class PugixmlConan(ConanFile):
 
     def build(self):
         shared = "-DBUILD_SHARED_LIBS".format("ON" if self.options.shared else "OFF")
-        cmake = CMake(self.settings)
+        cmake = CMake(self)
         self.run("cmake . %s" % cmake.command_line)
         self.run("cmake --build . %s" % cmake.build_config)
 
