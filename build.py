@@ -1,8 +1,6 @@
 import os
 from conan.packager import ConanMultiPackager
 import sys
-import platform
-from copy import copy
 
 
 if __name__ == "__main__":
@@ -21,9 +19,9 @@ if __name__ == "__main__":
     appveyor = os.getenv("APPVEYOR", False)
     appveyor_branch = os.getenv("APPVEYOR_REPO_BRANCH", None)
 
-    channel = "stable" if travis and travis_branch=="master" else channel
-    channel = "stable" if appveyor and appveyor_branch=="master" and not os.getenv("APPVEYOR_PULL_REQUEST_NUMBER") else channel
-    os.environ["CONAN_CHANNEL"] = channel # Override the environment value for test/conanfile.py file
+    channel = "stable" if travis and travis_branch == "master" else channel
+    channel = "stable" if appveyor and appveyor_branch == "master" and not os.getenv("APPVEYOR_PULL_REQUEST_NUMBER") else channel
+    os.environ["CONAN_CHANNEL"] = channel  # Override the environment value for test/conanfile.py file
 
     args = " ".join(sys.argv[1:])
     builder = ConanMultiPackager(args, username, channel)
