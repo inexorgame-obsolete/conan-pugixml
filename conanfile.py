@@ -19,7 +19,7 @@ class PugixmlConan(ConanFile):
         git_tag = "v" + self.version
 
         if sys.version_info.major >= 3:
-            self.run("git clone --depth 1 --branch {0} {1}".format(git_branch, self.git_repository_url))
+            self.run("git clone --depth 1 --branch {0} {1}".format(git_tag, self.git_repository_url))
         else:
             # Workaround for Python versions earlier than 3.0:
             # Instead of cloning the whole repository, we pull only what we need.
