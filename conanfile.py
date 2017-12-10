@@ -2,6 +2,7 @@ from conans import ConanFile, CMake
 import os
 import sys
 
+
 class PugixmlConan(ConanFile):
     name = "pugixml"
     version = "1.7"
@@ -36,6 +37,7 @@ class PugixmlConan(ConanFile):
             self.run("git pull origin %s" % git_tag)
 
     def build(self):
+        # FIXME: shared is never used
         shared = "-DBUILD_SHARED_LIBS".format("ON" if self.options.shared else "OFF")
         cmake = CMake(self)
         self.run("cmake . %s" % cmake.command_line)
