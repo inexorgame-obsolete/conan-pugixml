@@ -8,6 +8,7 @@ class PugixmlConan(ConanFile):
     version = "1.8.1"
     url = "https://github.com/inexorgame/conan-pugixml"
     license = "MIT"
+    description = "Light-weight, simple and fast XML parser for C++ with XPath support"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
