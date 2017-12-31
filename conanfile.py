@@ -5,7 +5,7 @@ import sys
 
 class PugixmlConan(ConanFile):
     name = "pugixml"
-    version = "1.7"
+    version = "1.8.1"
     url = "https://github.com/inexorgame/conan-pugixml"
     license = "MIT"
     settings = "os", "compiler", "build_type", "arch"
